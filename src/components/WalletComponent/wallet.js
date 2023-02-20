@@ -1,0 +1,124 @@
+import * as React from "react";
+import { useTheme } from "@mui/material/styles";
+import Box from "@mui/material/Box";
+import Card from "@mui/material/Card";
+import CardContent from "@mui/material/CardContent";
+// import CardMedia from '@mui/material/CardMedia';
+// import IconButton from '@mui/material/IconButton';
+import Typography from "@mui/material/Typography";
+// import SkipPreviousIcon from '@mui/icons-material/SkipPrevious';
+// import PlayArrowIcon from '@mui/icons-material/PlayArrow';
+// import SkipNextIcon from '@mui/icons-material/SkipNext';
+import Button from "@mui/material/Button";
+import Grid from "@mui/material/Grid";
+
+import { DataGrid, GridColDef, GridValueGetterParams } from '@mui/x-data-grid';
+
+
+const columns = [
+    
+    { field: 'currency', headerName: 'Currency', width: 130 },
+    {
+      field: 'amt',
+      headerName: 'Amount',
+      type: 'number',
+      width: 260,
+    },
+    
+  ];
+
+  const rows = [
+    { id: 1, lastName: 'Snow', currency: 'ETH', amt: 0.3590980 },
+    { id: 2, lastName: 'Lannister', currency: 'BTC', amt: 42 },
+    { id: 3, lastName: 'Lannister', currency: 'XRC', amt: 45 },
+    { id: 4, lastName: 'Stark', currency: 'META', amt: 16 },
+    { id: 5, lastName: 'Targaryen', currency: 'SHIB', amt: null },
+    { id: 6, lastName: 'Melisandre', currency: null, amt: 150 },
+    { id: 7, lastName: 'Clifford', currency: 'Ferrara', amt: 44 },
+    { id: 8, lastName: 'Frances', currency: 'Rossini', amt: 36 },
+    { id: 9, lastName: 'Roxie', currency: 'Harvey', amt: 65 },
+  ];
+
+
+
+
+export const Wallet = () => {
+
+  return (
+    <Card >
+      {/* <Box sx={{ display: "flex", flexDirection: "column" }}> */}
+        <CardContent>
+
+          <Grid container>
+            <Grid item xs={8}>
+              <Typography component="div" variant="h5">
+                Contract
+              </Typography>
+            </Grid>
+            <Grid item xs={4}>
+              <Button variant="contained" color="success" disabled>
+                Success
+              </Button>
+            </Grid>
+
+            <Grid item xs={12}>
+              <Typography
+                variant="subtitle1"
+                color="text.secondary"
+                component="div"
+              >
+                xxx-fs3434sw-wswed33443
+              </Typography>
+            </Grid>
+
+            <Grid item xs={1}>
+              <Button variant="contained" >
+                Send
+              </Button>
+          </Grid>
+          <Grid item xs={1}>
+              <Button variant="contained" >
+                Receive
+              </Button>
+
+          </Grid>
+          </Grid>
+
+        </CardContent>
+
+    <div style={{ height: 400, width: '100%' }}>
+      <DataGrid
+        rows={rows}
+        columns={columns}
+        pageSize={5}
+        rowsPerPageOptions={[5]}
+      />
+    </div>
+        
+      {/* </Box> */}
+    </Card>
+  );
+};
+
+
+// checkboxSelection
+// {
+//     field: 'fullName',
+//     headerName: 'Full name',
+//     description: 'This column has a value getter and is not sortable.',
+//     sortable: false,
+//     width: 160,
+//     valueGetter: (params) =>
+//       `${params.row.firstName || ''} ${params.row.lastName || ''}`,
+//   },
+/* <Box sx={{ display: 'flex', alignItems: 'center', pl: 1, pb: 1 }}>
+            <IconButton aria-label="previous">
+              {theme.direction === 'rtl' ? <SkipNextIcon /> : <SkipPreviousIcon />}
+            </IconButton>
+            <IconButton aria-label="play/pause">
+              <PlayArrowIcon sx={{ height: 38, width: 38 }} />
+            </IconButton>
+            <IconButton aria-label="next">
+              {theme.direction === 'rtl' ? <SkipPreviousIcon /> : <SkipNextIcon />}
+            </IconButton>
+          </Box> */
