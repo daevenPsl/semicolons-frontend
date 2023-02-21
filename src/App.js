@@ -1,24 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
-import { IdentityViewPage } from './pages/IdentityViewPage/IdentityViewPage';
-import { Login } from './pages/LoginPage/Login';
-import styles from './app.module.css'
+import logo from "./logo.svg";
+import "./App.css";
+import { IdentityViewPage } from "./pages/IdentityViewPage/IdentityViewPage";
+import { Login } from "./pages/LoginPage/Login";
+import { ClaimIssuerPage } from "./pages/ClaimIssuerPage/ClaimIssuerPage";
+import styles from "./app.module.css";
 
-const {parent}=styles;
+const { parent } = styles;
 
 function App() {
   return (
-    <div className={parent} >
-        <IdentityViewPage/>
-        {/* <Login/> */}
+    <div className={parent}>
+      {/* <IdentityViewPage/> */}
+      {/* <Login/> */}
+      {<ClaimIssuerPage />}
     </div>
   );
 }
 
 export default App;
-
-
-
 
 // function App() {
 //   return (
