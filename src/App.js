@@ -3,13 +3,15 @@ import './App.css';
 import { IdentityViewPage } from './pages/IdentityViewPage/IdentityViewPage';
 import { Login } from './pages/LoginPage/Login';
 import styles from './app.module.css'
+import { ClaimCheckerPage } from './pages/ClaimCheckerPage/ClaimCheckerPage';
 
 const {parent}=styles;
 
 function App() {
   return (
     <div className={parent} >
-        <IdentityViewPage/>
+      <ClaimCheckerPage/>
+        {/*<IdentityViewPage/>*/}
         {/* <Login/> */}
     </div>
   );
