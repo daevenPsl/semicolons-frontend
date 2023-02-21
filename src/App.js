@@ -1,7 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import { IdentityViewPage } from './pages/IdentityViewPage/IdentityViewPage';
-
+import { Login } from './pages/LoginPage/Login';
 import styles from './app.module.css'
 
 const {parent}=styles;
@@ -9,8 +9,8 @@ const {parent}=styles;
 function App() {
   return (
     <div className={parent} >
-      
         <IdentityViewPage/>
+        {/* <Login/> */}
     </div>
   );
 }

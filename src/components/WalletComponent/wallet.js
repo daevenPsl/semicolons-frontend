@@ -57,7 +57,7 @@ export const Wallet = () => {
             </Grid>
             <Grid item xs={4}>
               <Button variant="contained" color="success" disabled>
-                Success
+                Activate
               </Button>
             </Grid>
 
@@ -71,22 +71,21 @@ export const Wallet = () => {
               </Typography>
             </Grid>
 
-            <Grid item xs={1}>
+            <Grid item xs={2}>
               <Button variant="contained" >
                 Send
               </Button>
           </Grid>
-          <Grid item xs={1}>
+          <Grid item xs={2}>
               <Button variant="contained" >
                 Receive
               </Button>
 
           </Grid>
           </Grid>
+          <Grid item xs={12}>
 
-        </CardContent>
-
-    <div style={{ height: 400, width: '100%' }}>
+          <div style={{ height: 400, width: '100%' , paddingTop: "2rem"}}>
       <DataGrid
         rows={rows}
         columns={columns}
@@ -94,6 +93,11 @@ export const Wallet = () => {
         rowsPerPageOptions={[5]}
       />
     </div>
+          </Grid>
+
+        </CardContent>
+
+    
         
       {/* </Box> */}
     </Card>

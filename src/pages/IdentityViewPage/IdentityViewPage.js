@@ -1,10 +1,19 @@
 import { Wallet } from "../../components/WalletComponent/wallet";
+import Grid from "@mui/material/Grid";
+
 
 export const IdentityViewPage=()=>{
     return(
         <>
-        {/* <h1>jjj</h1> */}
-        <Wallet/>
+        <Grid container>
+            <Grid item xs={6}>
+                <Wallet/>
+            </Grid>
+            <Grid item xs={6}>
+                <Wallet/>
+            </Grid>
+        </Grid>
+        
         </>
     )
 }
