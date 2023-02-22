@@ -7,9 +7,12 @@ import Button from "@mui/material/Button";
 import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
 import { useNavigate } from "react-router-dom";
+import styles from './navbar.module.css'
 
 const Navbar=()=> {
   let navigate = useNavigate();
+
+  const {navbarPosition}= styles;
 
   const userName=localStorage.getItem('userEmail');
 
@@ -20,7 +23,7 @@ const Navbar=()=> {
   };
 
   return (
-    <Box sx={{ flexGrow: 1 }}>
+    <Box className={navbarPosition}  sx={{ flexGrow: 1 }}>
       <AppBar position="static">
         <Toolbar>
           <IconButton

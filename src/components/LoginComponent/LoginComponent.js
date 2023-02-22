@@ -13,15 +13,45 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
+import Modal from '@mui/material/Modal';
+import styles from './loginComponent.module.css'
+
+const {enterButton}=styles
+
 
 const theme = createTheme();
 
 export default function LoginComponent() {
 
+  const style = {
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    width: 400,
+    bgcolor: 'background.paper',
+    border: '2px solid #000',
+    boxShadow: 24,
+    p: 4,
+  };
+
+
   let navigate = useNavigate();
 
   const currentUserEmail=localStorage.getItem('userEmail')
   const currentUserPassword= localStorage.getItem('userPassword')
+
+  const [otpModal, setOtpModal]= useState(false);
+  const [recoverModal, setRecoverModal]= useState(false);
+  const [newPasswordModal, setNewPasswordModal]= useState(false);
+
+  const handleOpen = () => setOtpModal(true);
+  const handleClose = () => setOtpModal(false);
+
+  const handleCloseRecoverModal=()=>setRecoverModal(false);
+
+  const handleCloseNewPasswordModal=()=>setNewPasswordModal(false);
 
   
   const handleSubmit = (event) => {
@@ -34,9 +64,33 @@ export default function LoginComponent() {
 
     localStorage.setItem('userEmail', data.get('email'))
     localStorage.setItem('userPassword', data.get('password'))
-    navigate("/");
+    // navigate("/");
+    setOtpModal(true)
     // console.log("mmm")
   };
+
+  const handleOtpClick=()=>{
+    navigate("/");
+    // console.log("called")
+  }
+
+  const handleRecoverClick=()=>{
+    // navigate("/");
+    console.log("called")
+    setRecoverModal(true)
+
+    // setNewPasswordModal(true)
+    // handleCloseRecoverModal();
+  }
+
+  const handleRecoverOtpSubmit=()=>{
+    setRecoverModal(false);
+    setNewPasswordModal(true)
+  }
+
+  const handlePasswordReset=()=>{
+    navigate("/")
+  }
 
   return (
     <>
@@ -90,7 +144,15 @@ export default function LoginComponent() {
             >
               Sign In
             </Button>
-            <Grid container>
+            
+            <Button 
+              fullWidth
+              variant="contained"
+              onClick={handleRecoverClick}
+              >
+                Recover
+            </Button>
+            {/* <Grid container>
               <Grid item xs>
                 <Link href="#" variant="body2">
                   Forgot password?
@@ -101,11 +163,107 @@ export default function LoginComponent() {
                   {"Don't have an account? Sign Up"}
                 </Link>
               </Grid>
-            </Grid>
+            </Grid> */}
           </Box>
         </Box>
       </Container>
     </ThemeProvider>
+
+
+
+    <Modal
+        open={otpModal}
+        onClose={handleClose}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+      >
+        <Box sx={style}>
+          <Typography id="modal-modal-title" variant="h6" component="h2">
+            Enter the OTP
+          </Typography>
+          <TextField
+              margin="normal"
+              required
+              fullWidth
+              name="otp"
+              label="OTP"
+              type="password"
+              id="otp"
+              autoComplete="current-otp"
+            />
+            <Button className={enterButton} variant="contained" color="success" onClick={handleOtpClick} >
+                Enter
+            </Button>
+        </Box>
+      </Modal>
+
+
+      <Modal
+        open={recoverModal}
+        onClose={handleCloseRecoverModal}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+      >
+        <Box sx={style}>
+          <Typography id="modal-modal-title" variant="h6" component="h2">
+            Enter the OTP
+          </Typography>
+          <TextField
+              margin="normal"
+              required
+              fullWidth
+              name="otp-password"
+              label="OTP"
+              type="password"
+              id="otp-passowrd"
+              autoComplete="current-otp"
+            />
+            <Button className={enterButton} variant="contained" color="success" onClick={handleRecoverOtpSubmit} >
+                Enter
+            </Button>
+        </Box>
+      </Modal>
+
+
+
+      <Modal
+        open={newPasswordModal}
+        onClose={handleCloseNewPasswordModal}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+      >
+        <Box sx={style}>
+          <Typography id="modal-modal-title" variant="h6" component="h2">
+            Enter the New Password
+          </Typography>
+
+          <TextField
+              margin="normal"
+              required
+              fullWidth
+              name="new-password"
+              label="New Password"
+              type="password"
+              id="new-password"
+            />
+
+          <Typography id="modal-modal-title" variant="h6" component="h2">
+            Repeat the New Password
+          </Typography>
+          <TextField
+              margin="normal"
+              required
+              fullWidth
+              name="new-password-repeat"
+              label="Repeat New Password"
+              type="password"
+              id="new-password-repeat"
+            />
+            <Button className={enterButton} variant="contained" color="success" onClick={handlePasswordReset}>
+                Sign In 
+            </Button>
+        </Box>
+      </Modal>
  
 
     </>
