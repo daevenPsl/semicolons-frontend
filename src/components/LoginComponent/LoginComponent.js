@@ -12,11 +12,18 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-
+import { useNavigate } from "react-router-dom";
 
 const theme = createTheme();
 
 export default function LoginComponent() {
+
+  let navigate = useNavigate();
+
+  const currentUserEmail=localStorage.getItem('userEmail')
+  const currentUserPassword= localStorage.getItem('userPassword')
+
+  
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
@@ -24,9 +31,15 @@ export default function LoginComponent() {
       email: data.get('email'),
       password: data.get('password'),
     });
+
+    localStorage.setItem('userEmail', data.get('email'))
+    localStorage.setItem('userPassword', data.get('password'))
+    navigate("/");
+    // console.log("mmm")
   };
 
   return (
+    <>
     <ThemeProvider theme={theme}>
       <Container component="main" maxWidth="xs">
         <CssBaseline />
@@ -65,10 +78,10 @@ export default function LoginComponent() {
               id="password"
               autoComplete="current-password"
             />
-            <FormControlLabel
+            {/* <FormControlLabel
               control={<Checkbox value="remember" color="primary" />}
               label="Remember me"
-            />
+            /> */}
             <Button
               type="submit"
               fullWidth
@@ -93,5 +106,8 @@ export default function LoginComponent() {
         </Box>
       </Container>
     </ThemeProvider>
+ 
+
+    </>
   );
 }

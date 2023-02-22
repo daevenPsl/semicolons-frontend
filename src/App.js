@@ -1,17 +1,27 @@
 import logo from './logo.svg';
 import './App.css';
 import { IdentityViewPage } from './pages/IdentityViewPage/IdentityViewPage';
-import { Login } from './pages/LoginPage/Login';
+import { Login } from './pages/Login/Login';
 import styles from './app.module.css'
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+
 
 const {parent}=styles;
 
 function App() {
   return (
+    <>
+    
     <div className={parent} >
-        <IdentityViewPage/>
+      <Routes>
+              <Route exact path='/' element={<IdentityViewPage/>} />
+              <Route path='/login' element={<Login/>} />
+      </Routes>
+        {/* <IdentityViewPage/> */}
         {/* <Login/> */}
     </div>
+    
+    </>
   );
 }
 
