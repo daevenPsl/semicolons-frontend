@@ -56,17 +56,9 @@ export const ClaimCheckerComponent = () => {
               </Typography>
             </Grid>
 
-            <Grid item xs={12}>
-              <Typography
-                variant="subtitle1"
-                color="text.secondary"
-                component="div"
-              >
-               
-              </Typography>
-            </Grid>
+          
             <Grid item xs={2}>
-
+                
               <Button variant="contained" >
                 Verified!
               </Button>
