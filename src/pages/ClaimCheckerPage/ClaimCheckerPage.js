@@ -7,6 +7,7 @@ export const ClaimCheckerPage=()=>{
     return(
         <>
         <Navbar/>
+        
         <Grid container>
             <Grid item xs={6}>
                 <Wallet/>
@@ -15,6 +16,8 @@ export const ClaimCheckerPage=()=>{
                 <ClaimCheckerComponent/>
             </Grid>
         </Grid>
+
+        
         
         </>
     )

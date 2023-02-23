@@ -18,7 +18,7 @@ function App() {
       <Routes>
               <Route exact path='/identityViewPage' element={<IdentityViewPage/>} />
               <Route exact path='/claimIssuerPage' element={<ClaimIssuerPage/>} />
-              <Route exact path='/claimCheckerPage' element={<ClaimIssuerPage/>} />
+              <Route exact path='/claimCheckerPage' element={<ClaimCheckerPage/>} />
               <Route path='/' element={<Login/>} />
       </Routes>
         {/* <IdentityViewPage/> */}
