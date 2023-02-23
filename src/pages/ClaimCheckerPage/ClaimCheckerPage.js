@@ -1,10 +1,9 @@
 import { Wallet } from "../../components/WalletComponent/wallet";
 import Grid from "@mui/material/Grid";
+import {ClaimCheckerComponent} from "../../components/ClaimCheckerComponent/ClaimCheckerComponent";
 import Navbar from "../../components/NavBarComponent/Navbar";
 
-import { Claim } from "../../components/ClaimComponent/claim";
-
-export const IdentityViewPage=()=>{
+export const ClaimCheckerPage=()=>{
     return(
         <>
         <Navbar/>
@@ -13,8 +12,7 @@ export const IdentityViewPage=()=>{
                 <Wallet/>
             </Grid>
             <Grid item xs={6}>
-                {/* <Wallet/> */}
-                <Claim/>
+                <ClaimCheckerComponent/>
             </Grid>
         </Grid>
         

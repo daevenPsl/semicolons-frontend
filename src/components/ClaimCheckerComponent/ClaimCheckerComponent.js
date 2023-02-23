@@ -17,34 +17,24 @@ import { DataGrid, GridColDef, GridValueGetterParams } from '@mui/x-data-grid';
 
 const columns = [
     
-    { field: 'currency', headerName: 'Currency', width: 150 },
-    {
-      field: 'amt',
-      headerName: 'Amount',
-      type: 'number',
-      width: 360,
-    },
-    
+    { field: 'number', headerName: 'Block', width: 100 },
+    { field: "identity", headerName: "Identity", width: 100 },
+    { field: "claim", headerName: "Claim Type", width: 150 },
+    { field: "Issuer", headerName: "Issuer", width: 100 },
+    { field: "result", headerName: "Result", width: 100 },
+   
+   
   ];
 
   const rows = [
-    { id: 1, currency: 'ETH', amt: 0.3590980 },
-    { id: 2, currency: 'BTC', amt: 42 },
-    { id: 3,  currency: 'XRC', amt: 45 },
-    // { id: 4, lastName: 'Stark', currency: 'META', amt: 16 },
-    // { id: 5, lastName: 'Targaryen', currency: 'SHIB', amt: null },
-    // { id: 6, lastName: 'Melisandre', currency: null, amt: 150 },
-    // { id: 7, lastName: 'Clifford', currency: 'Ferrara', amt: 44 },
-    // { id: 8, lastName: 'Frances', currency: 'Rossini', amt: 36 },
-    // { id: 9, lastName: 'Roxie', currency: 'Harvey', amt: 65 },
+    { id: 1, number: "9", identity: "Nick", claim: "Has Facebook",Issuer: "Origin",result: "Invalid"},
   ];
 
 
-
-
-export const Wallet = () => {
+export const ClaimCheckerComponent = () => {
 
   return (
+      
     <Card >
       {/* <Box sx={{ display: "flex", flexDirection: "column" }}> */}
         <CardContent>
@@ -52,13 +42,18 @@ export const Wallet = () => {
           <Grid container>
             <Grid item xs={8}>
               <Typography component="div" variant="h5">
-                Contract
+              Property Listing
               </Typography>
             </Grid>
-            <Grid item xs={4}>
-              <Button variant="contained" color="success" disabled>
-                Activate
-              </Button>
+                        
+         
+            <Grid item xs={12}>
+              <Typography
+                variant="subtitle1"
+                color="text.secondary"
+                component="div"
+              > 
+              </Typography>
             </Grid>
 
             <Grid item xs={12}>
@@ -67,25 +62,21 @@ export const Wallet = () => {
                 color="text.secondary"
                 component="div"
               >
-                xxx-fs3434sw-wswed33443
+               
               </Typography>
             </Grid>
-
             <Grid item xs={2}>
-              <Button variant="contained" >
-                Send
-              </Button>
-          </Grid>
-          <Grid item xs={2}>
-              <Button variant="contained" >
-                Receive
-              </Button>
 
+              <Button variant="contained" >
+                Verified!
+              </Button>
+              
           </Grid>
+         
           </Grid>
           <Grid item xs={12}>
 
-          <div style={{ height: 400, width: '100%' , paddingTop: "2rem"}}>
+          <div style={{ height: 200, width: '100%' , paddingTop: "2rem"}}>
       <DataGrid
         rows={rows}
         columns={columns}
@@ -96,8 +87,6 @@ export const Wallet = () => {
           </Grid>
 
         </CardContent>
-
-    
         
       {/* </Box> */}
     </Card>

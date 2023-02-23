@@ -70,7 +70,7 @@ export default function LoginComponent() {
   };
 
   const handleOtpClick=()=>{
-    navigate("/");
+    navigate("/identityViewPage");
     // console.log("called")
   }
 
@@ -89,7 +89,7 @@ export default function LoginComponent() {
   }
 
   const handlePasswordReset=()=>{
-    navigate("/")
+    navigate("/identityViewPage")
   }
 
   return (
